@@ -22,7 +22,7 @@ public class StartView {
         switch (sc.nextLine().toLowerCase()) {
             case "1" -> WriterView.run();
             case "2" -> PostView.run();
-//            case "3" -> TagView.run();
+            case "3" -> TagView.run();
 
             case "q" -> System.out.println("Bye!");
             default -> System.out.println("Try another one");

@@ -7,26 +7,27 @@ import java.util.Scanner;
 
 public class PostView {
 
-    private static String postViewMessage =
-            " :.:.:.: Posts :.:.:.:  \n" +
-                    "Input the point for continue...\n" +
-                    "1. Create a new post for writer \n" +
-                    "2. Show all posts\n" +
-                    "3. Show all post by status\n" +
-                    "4. Show post by id\n" +
-                    "5. Show posts by tags\n" +
-                    "6. Update post content by post id\n" +
-                    "7. Update post tags by post id\n" +
-                    "8. Change post status by post id\n" +
-                    "9. Delete post by id\n" +
-                    "10. Delete posts by status\n"+
+    private static final String postViewMessage =
+            """
+                     :.:.:.: Posts :.:.:.: \s
+                    Input the point for continue...
+                    1. Create a new post for writer\s
+                    2. Show all posts
+                    3. Show all post by status
+                    4. Show post by id
+                    5. Show posts by tags
+                    6. Update post content by post id
+                    7. Update post tags by post id
+                    8. Change post status by post id
+                    9. Delete post by id
+                    10. Delete posts by status
+                    \t'q' for quit
+                    \t'p' for previous screen
+                    """;
 
-                    "\t'q' for quit\n" +
-                    "\t'p' for previous screen\n";
+    private static final Scanner sc = new Scanner(System.in);
 
-    private static Scanner sc = new Scanner(System.in);
-
-    private static PostViewController pvc = new PostViewController();
+    private static final PostViewController pvc = new PostViewController();
 
     public static void run() {
         System.out.println(postViewMessage);

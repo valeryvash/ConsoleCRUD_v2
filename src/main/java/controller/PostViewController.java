@@ -24,7 +24,7 @@ public class PostViewController {
 
     private final TagRepository tr = new GsonTagRepositoryImpl();
 
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     void showPost(Post p) {
         System.out.println(p);
@@ -113,13 +113,13 @@ public class PostViewController {
                         showPost(p);
                         return p;
                     }
-                } catch (NumberFormatException e) {}
+                } catch (NumberFormatException ignored) {}
             System.out.println("Such post doesn't exist! Try again");
         } while (true);
     }
 
     public void getPostsByTags() {
-        List<Tag> tagsList = getTagsStream().collect(Collectors.toList());
+        List<Tag> tagsList = getTagsStream().toList();
         if (tagsList.isEmpty()) {
             pr.getObjectsStream()
                     .filter(p ->  p.getTagsIdStream().findAny().isEmpty())

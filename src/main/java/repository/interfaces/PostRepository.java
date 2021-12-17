@@ -2,6 +2,7 @@ package repository.interfaces;
 
 import model.Post;
 import model.PostStatus;
+import model.Tag;
 import model.Writer;
 
 import java.util.stream.Stream;
@@ -38,4 +39,6 @@ public interface PostRepository extends GenericRepository<Long, Post> {
     Stream<Post> getPostsStreamByWriter(Writer w);
 
     void deleteByStatus(PostStatus ps);
+
+    void deleteTagFromPost(Tag t);
 }

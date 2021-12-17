@@ -27,7 +27,7 @@ public class RepositoryUtil {
         this.listToken = listToken;
     }
 
-    public  <T extends Entity> Stream<T> readObjectsStream(){
+    public <T extends Entity> Stream<T> readObjectsStream(){
         Stream<T> result = Stream.empty();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {

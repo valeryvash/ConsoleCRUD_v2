@@ -6,22 +6,23 @@ import java.util.Scanner;
 
 public class WriterView {
 
-    private static String writerViewMessage =
-            "Writers\n" +
-                    "Input the point for continue...\n" +
-                    "1. Create a new writer\n" +
-                    "2. Print writer info\n" +
-                    "3. Update writer name\n" +
-                    "4. Delete writer \n" +
-                    "5. Print writer posts\n" +
-                    "6. Print all writers info\n" +
+    private static final String writerViewMessage =
+            """
+                    Writers
+                    Input the point for continue...
+                    1. Create a new writer
+                    2. Print writer info
+                    3. Update writer name
+                    4. Delete writer\s
+                    5. Print writer posts
+                    6. Print all writers info
+                    \t'q' for quit
+                    \t'p' for previous screen
+                    """;
 
-                    "\t'q' for quit\n" +
-                    "\t'p' for previous screen\n";
+    private static final Scanner sc = new Scanner(System.in);
 
-    private static Scanner sc = new Scanner(System.in);
-
-    private static WriterViewController wvc = new WriterViewController();
+    private static final WriterViewController wvc = new WriterViewController();
 
     public static void run() {
         System.out.println(writerViewMessage);
@@ -47,7 +48,7 @@ public class WriterView {
     private static void question() {
         System.out.print("Show 'WriterView' again? 'y' for yes\t");
         switch (sc.nextLine().toLowerCase()) {
-            case "y" -> WriterView.run();
+            case "y" -> TagView.run();
             default -> System.exit(0);
         }
     }

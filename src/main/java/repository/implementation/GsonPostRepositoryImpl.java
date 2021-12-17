@@ -3,6 +3,7 @@ package repository.implementation;
 import com.google.gson.reflect.TypeToken;
 import model.Post;
 import model.PostStatus;
+import model.Tag;
 import model.Writer;
 import repository.interfaces.PostRepository;
 import repository.util.RepositoryUtil;
@@ -96,5 +97,18 @@ public class GsonPostRepositoryImpl implements PostRepository {
                 getObjectsStream().filter(post -> post.getPostStatus() != ps)
         );
 
+    }
+
+    @Override
+    public void deleteTagFromPost(Tag t) {
+        writeObjectsStream(
+                getObjectsStream().map(post -> {
+                    post.setTagsIdStream(
+                            post.getTagsIdStream()
+                                    .filter(id -> !Objects.equals(id, t.getId()))
+                    );
+                    return post;
+                })
+        );
     }
 }
